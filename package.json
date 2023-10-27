@@ -1,0 +1,20 @@
+{
+  "name": "avanzado2_2023b",
+  "version": "1.0.0",
+  "description": "Proyecto de aprendizaje",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Fernando Arteaga",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.5.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "prisma": "^5.5.2"
+  }
+}
