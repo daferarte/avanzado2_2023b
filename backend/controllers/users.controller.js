@@ -4,8 +4,8 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const agregarUsuario = async(req = request, res = response) =>{
-
-    const { email, password } = req.body;
+    
+    const { email, password } = req.body.user;
     const user = await prisma.user.create({
       data: {
         email,
