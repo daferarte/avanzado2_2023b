@@ -89,4 +89,32 @@ const eliminarUsuario = async(req = request, res = response) =>{
     });
 }
 
-module.exports = {agregarUsuario, mostrarUsuario, mostrarUsuarios, editarUsuario, eliminarUsuario};
+const iniciarSesion = async(req = request, res = response) =>{
+
+    const { email, password } = req.body;
+
+    const user = await prisma.user.findUnique({
+        where: { 
+            email: email
+        }
+    }).catch((e)=>{
+        return e.message;
+    }).finally(async ()=>{
+        await prisma.$disconnect();
+    })
+
+    
+    if (user.password == password){
+        res.status(202).json({
+            user
+        });
+    }else{
+        res.status(401).json({
+            user:null
+         });
+    }
+
+    
+}
+
+module.exports = {agregarUsuario, mostrarUsuario, mostrarUsuarios, editarUsuario, eliminarUsuario, iniciarSesion};
